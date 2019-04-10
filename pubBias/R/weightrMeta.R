@@ -11,13 +11,23 @@
 #' \dontrun{
 #' library(metafor)
 #' library(broom)
+#' ma_model_molloy2014 <- metafor::dat.molloy2014
 #'
-#' ma <- rma(yi = lnes, sei = selnes, slab = study_name, data = iud_cxca)
 #'
-#' ma %>%
-#'   tidy() %>%
-#'   weightrMeta(ma)
+#' ma <- ma_model_molloy2014 %>%
+#'  escalc(
+#'    measure = "ZCOR",
+#'    ni = ni,
+#'    ri = ri,
+#'    data = .) %>%
+#'  group_by(design) %>%
+#'  meta_analysis(yi = yi, vi = vi, slab = authors, exponentiate = TRUE)
+#'
+#' weightrMeta(ma)
 #' }
 weightrMeta <- function(meta, ...) {
+  weightrMeta_yi <- meta$estimate
+  weightrMeta_vi <- meta$std.error
+  weightfunct(weightrMeta_yi,weightrMeta_vi)
 }
 
