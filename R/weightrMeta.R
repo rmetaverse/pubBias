@@ -6,7 +6,7 @@
 #'
 #' @return a `tbl` with a `listcol`, `meta`, containing the meta-analysis
 #' @import weightr
-#'
+#' @export
 #' @examples
 #' \dontrun{
 #' library(metafor)
