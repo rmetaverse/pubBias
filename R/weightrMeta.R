@@ -1,6 +1,6 @@
 #' weightr
 #'
-#' `weightrMeta()` Connects the weightr package to the Metaverse
+#' `weightrMeta()` Connects the weightr package to the Metaverse.
 #'
 #' #@param meta a meta-analysis object (e.g. `rma.uni`)
 #'
